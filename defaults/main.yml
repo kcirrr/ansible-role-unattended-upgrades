@@ -1,0 +1,11 @@
+---
+unattended_upgrades_devrelease: "auto"
+unattended_upgrades_remove_unused_kernel_packages: "true"
+unattended_upgrades_remove_new_unused_dependencies: "true"
+unattended_upgrades_remove_unused_dependencies: "true"
+unattended_upgrades_automatic_reboot: "true"
+unattended_upgrades_automatic_reboot_withusers: "true"
+unattended_upgrades_mailreport: "only-on-error"
+unattended_upgrades_mail: "root"
+unattended_upgrades_automatic_reboot_time: "05:30"
+unattended_upgrades_time: "5:00"

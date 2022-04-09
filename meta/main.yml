@@ -1,0 +1,21 @@
+---
+galaxy_info:
+  role_name: unattended_upgrades
+  author: kcir
+  description: Install and configure Unattended-Upgrades
+  company: NA
+
+  issue_tracker_url: https://github.com/kcirrr/ansible-role-unattended-upgrades/issues
+
+  license: MIT
+
+  min_ansible_version: "2.12.2"
+
+  platforms:
+    - name: Ubuntu
+      versions:
+        - focal
+
+  galaxy_tags: []
+
+dependencies: []

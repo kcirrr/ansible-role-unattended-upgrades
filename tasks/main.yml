@@ -1,0 +1,38 @@
+---
+- name: Install unattended-upgrades
+  apt:
+    name: unattended-upgrades
+    state: present
+    update_cache: true
+    cache_valid_time: 3600
+
+- name: Place configuration
+  template:
+    dest: /etc/apt/apt.conf.d/50unattended-upgrades
+    src: unattended-upgrades.j2
+    owner: root
+    group: root
+    mode: '644'
+
+- name: Create override directory
+  file:
+    path: /etc/systemd/system/apt-daily-upgrade.timer.d/
+    state: directory
+    owner: root
+    group: root
+    mode: '644'
+
+- name: Place timer override
+  template:
+    dest: /etc/systemd/system/apt-daily-upgrade.timer.d/override.conf
+    src: unattended-upgrades-override.j2
+    owner: root
+    group: root
+    mode: '644'
+  notify: daemon reload and restart timer
+
+- name: Make sure timer is enabled and started
+  systemd:
+    name: apt-daily-upgrade.timer
+    enabled: true
+    state: started
